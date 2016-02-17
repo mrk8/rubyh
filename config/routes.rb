@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :movies
   get 'welcome/index'
-
+  get 'welcome/about'
+  get 'contact' => 'welcome#contact', as: :contact
+  get 'about' => 'welcome#about', as: :about
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,3 +1,27 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.home {
+	
+	background-color: white;
+	height:  100vh;
+
+
+
+	.nav-tabs > li, .nav-pills > li {
+	    float: none;
+	    display: inline-block;
+	}
+		.nav-tabs {
+	    text-align: center;
+	}
+	.nav>li>a:focus, .nav>li>a:hover {
+	    text-decoration: none;
+	    background-color: white;
+	    color: grey;
+	}
+
+
+}
+
