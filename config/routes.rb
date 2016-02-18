@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :contacts
+  get 'tasks/index'
+
+  resources :contacts, except: [:new]
   resources :movies
   get 'welcome/index'
   get 'welcome/about'
@@ -7,7 +9,7 @@ Rails.application.routes.draw do
   # get 'contact' => 'welcome#contact', as: :contact
   get 'about' => 'welcome#about', as: :about
   get 'contact' => 'contacts#new', as: :contact_me
-   get 'thank_you' => 'contacts#thankYou', as: :thank_you
+  get 'thank_you' => 'contacts#thankYou', as: :thank_you
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
     end  
     root 'welcome#index'
 
+    resources :tasks, except: [:show]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,0 +1,7 @@
+<h1>Tasks</h1>
+<div class="list-group">
+ 
+<% @tasks.each do |task| %>
+ <button type="button" class="list-group-item"><%= task.title %></button>
+<% end %>
+</div>
