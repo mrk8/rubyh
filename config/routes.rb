@@ -1,20 +1,23 @@
 Rails.application.routes.draw do
+  resources :contacts
   resources :movies
   get 'welcome/index'
   get 'welcome/about'
-  get 'contact' => 'welcome#contact', as: :contact
+  # get 'contacts/new'
+  # get 'contact' => 'welcome#contact', as: :contact
   get 'about' => 'welcome#about', as: :about
+  get 'contact' => 'contacts#new', as: :contact_me
+   get 'thank_you' => 'contacts#thankYou', as: :thank_you
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  Rails.application.routes.draw do
-  resources :movies
+
     resources :articles do
       resources :comments
     end  
     root 'welcome#index'
-  end
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

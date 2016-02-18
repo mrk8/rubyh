@@ -17,10 +17,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+	<!-- Header -->
 	<%= render partial: 'common/header' unless controller_name == 'welcome' && action_name == 'index' %>
-	</div>
-	<%= yield %>
+	<!-- Header -->
+	<!-- Content container -->
+	<% if controller_name != 'welcome' %>
+		<div class="container content">
+			<div class="row">
+	<% end %>
+	<!-- Content container -->	
+		<!-- Ruby Views -->
+				<%= yield %>
+		<!-- Ruby Views -->	
+	<!-- Content container -->				
+	<% if controller_name != 'welcome' %>
+			</div>
+		</div>
+	<% end %>	
+	<!-- Content container -->
 
 </body>
 </html>
