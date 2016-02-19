@@ -1,29 +1,31 @@
-<h1>Create a new task</h1>
-<%= form_for(@tasks) do |f| %>
-  <% if @tasks.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@tasks.errors.count, "error") %> prohibited this task from being saved:</h2>
+<div class="col-xs-12">
+  <h1>Create a new task</h1>
+  <%= form_for(@tasks) do |f| %>
+    <% if @tasks.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@tasks.errors.count, "error") %> prohibited this task from being saved:</h2>
 
-      <ul>
-      <% @tasks.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @tasks.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
     </div>
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </div>
+
+
+    <div class="actions">
+      <input class="btn btn-success" type="submit" name="commit" value="Create Task">
+   </div>
+
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-
-
-  <div class="actions">
-    <input class="btn btn-success" type="submit" name="commit" value="Create Task">
- </div>
-
-<% end %>
+</div>
