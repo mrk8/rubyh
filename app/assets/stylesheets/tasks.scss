@@ -10,6 +10,14 @@
     	}
     }
 
+    .tasks-header{
+
+        display: inline-block;
+    }
+    .new-task-btn{
+        margin-top: 25px;
+    }
+
 
     .task-title{
     	width: 30%;
@@ -35,4 +43,9 @@
         border-top-left-radius: 0px;
         border-top-right-radius: 0px;
     }
+
+.pause-btn, .reset-btn, .start-btn{
+    margin-right: 1em;
+
+}
 

@@ -32,6 +32,11 @@ class TasksController < ApplicationController
 	   @task.update_attribute(:status, params[:status].to_i)	 
   end
 
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+  end
+
 
   private
 	  def task_params
