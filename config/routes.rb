@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'tasks/index'
+  # get 'tasks/index'
+   # get 'tasks/update'
 
   resources :contacts, except: [:new]
   resources :movies
