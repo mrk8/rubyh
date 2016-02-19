@@ -1,8 +1,9 @@
 class TasksController < ApplicationController
   def index
   	# @tasks = Task.all
-  	@finished_tasks = Task.where(status: Task::Status::FINISHED)
-  	@unfinished_tasks = Task.where(status: [Task::Status::NOT_STARTED, Task::Status::STARTED])
+  	@finished_tasks = Task.finished
+  	@unstarted_tasks = Task.not_started
+    @started_tasks = Task.started
 
   end
 
@@ -15,9 +16,11 @@ class TasksController < ApplicationController
     # debugger
     respond_to do |format|
       if @tasks.save
+        flash[:success] = "Your new task has been created."
         format.html { redirect_to tasks_path, notice: 'Task was successfully created.' }
         format.json { render :index, status: :created, location: @tasks }
       else
+        flash.now[:error] = "Your task was not created."
         format.html { render :new }
         format.json { render json: @tasks.errors, status: :unprocessable_entity }
       end
@@ -25,12 +28,8 @@ class TasksController < ApplicationController
   end
 
   def update
-
   	 @task = Task.find(params[:id])
-	   @task.status = 2 
-     @task.save
-     redirect_to tasks_path
-	 
+	   @task.update_attribute(:status, params[:status].to_i)	 
   end
 
 

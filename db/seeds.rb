@@ -7,13 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 def seed_tasks(title, desc, status) 
-	Task.find_or_create_by(title: title)
+	Task.find_or_create_by(title: title, status: status)
 end
 
-seed_tasks("Task 1", "desc", 0)
-seed_tasks("Task 2", "desc", 0)
-seed_tasks("Task 3", "desc", 0)
-seed_tasks("Task 4", "desc", 0)
-seed_tasks("Task 5", "desc", 0)
-seed_tasks("Task 6", "desc", 0)
-seed_tasks("Task 7", "desc", 0)
+seed_tasks("Task 1111", "desc", 1)
+seed_tasks("Task 2222", "desc", 1)
+seed_tasks("Task 3332", "desc", 1)
+seed_tasks("Task 4322", "desc", 1)
+seed_tasks("Task 123221", "desc", 1)
+seed_tasks("Task 3122", "desc", 1)
+seed_tasks("Task 122", "desc", 1)
