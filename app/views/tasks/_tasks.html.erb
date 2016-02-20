@@ -1,0 +1,20 @@
+<% if task.not_started? %>
+ 	<li class="list-group-item"><%= task.title %> - <%= task.description %> -
+ 		<span class="pull-right"> <%= link_to "Start", task_path(task), status: Task::Status::STARTED method: :patch, class: "btn btn-primary btn-xs" %> </span>  
+ 	</li>
+<% elsif task.started? %>
+	<li class="list-group-item"><%= task.title %> - <%= task.description %> -
+ 		<span class="pull-right"> <%= link_to "Stop", task_path(task), status: Task::Status::NOT_STARTED method: :patch, class: "btn btn-alert btn-xs" %> </span>  
+ 		 <span class="pull-right"> <%= link_to "Finish", task_path(task), status: Task::Status::FINISH method: :patch, class: "btn btn-primary btn-xs" %>
+ 		 </span>
+ 	</li>
+<% else %>
+	<li class="list-group-item"><%= task.title %> - <%= task.description %> -
+ 		<span class="pull-right"> <%= link_to "Reset", task_path(task), status: Task::Status::NOT_STARTED method: :patch, class: "btn btn-warning btn-xs" %>
+ 		</span>
+ 		<span class="pull-right"> <%= link_to "Finish", task_path(task), status: Task::Status::FINISH method: :patch, class: "btn btn-primary btn-xs" %>
+ 		</span> 
+ 	</li>
+
+<% end %>
+
