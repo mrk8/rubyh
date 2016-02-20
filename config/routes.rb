@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  get 'user/index'
-
-  get 'user/new'
-
-  get 'user/show'
+  
 
   # get 'tasks/index'
    # get 'tasks/update'
