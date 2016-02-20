@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'user/index'
+
+  get 'user/new'
+
+  get 'user/show'
+
   # get 'tasks/index'
    # get 'tasks/update'
 
@@ -22,6 +28,8 @@ Rails.application.routes.draw do
     root 'welcome#index'
 
     resources :tasks, except: [:show]
+
+    resources :user
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
