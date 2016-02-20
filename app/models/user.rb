@@ -11,5 +11,6 @@ class User < ActiveRecord::Base
 					  format: { with: VALID_EMAIL_REGEX },
 					  uniqueness: {case_sensitive: false}
 	# check password with bcrypt: https://www.railstutorial.org/book/modeling_users (section 6.34) 
-	has_secure_password				  
+	has_secure_password		
+	validates :password, presence: true, length: {minimum: 6}		  
 end

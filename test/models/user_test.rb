@@ -36,4 +36,14 @@ class UserTest < ActiveSupport::TestCase
 		assert_not duplicate_user.valid?
 	end #end  "email address must be unique" test.
 
+	test "passwod should be present - not blank" do
+		@user.password = @user.password_confirmation = " " * 6
+		assert_not @user.valid?
+	end #end "passwod shold be present - not blank" test.
+
+	test "password should be 6 characters long" do
+		@user.password = @user.password_confirmation = "a" * 5
+		assert_not @user.valid?
+	end #end "password should be at least 6 characters long" test. 
+
 end #end class.
