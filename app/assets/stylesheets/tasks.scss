@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /* Medium Devices, Desktops */
-    @media only screen and (min-width : 992px) {
+    @media only screen and (min-width : 768px) {
 
     	.list-group{
     		margin-right: 0%;
@@ -32,20 +32,21 @@
     }
 
     .nav-tabs {
-    border-bottom: 0px solid #ddd;
-}
+        border-bottom: 0px solid #ddd;
+    }
+    
     .list-group-item:last-child {
-    margin-bottom: 0;
-    border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-}
+        margin-bottom: 0;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
     .list-group-item:first-child {
         border-top-left-radius: 0px;
         border-top-right-radius: 0px;
     }
 
-.pause-btn, .reset-btn, .start-btn{
-    margin-right: 1em;
+    .pause-btn, .reset-btn, .start-btn{
+        margin-right: 1em;
 
-}
+    }
 

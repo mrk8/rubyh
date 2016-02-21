@@ -39,13 +39,13 @@
 		<!-- Ruby Views -->	
 	<!-- Content container -->				
 	<% if controller_name != 'welcome' %>
-			<div class="col-xs-12">
-			<%= debug(params) if Rails.env.development? %>
-			</div>
-			</div>
-		</div>
-	<% end %>	
-	<!-- Content container -->
+				<div class="col-xs-12 dev-info">
+					<%= debug(params) if Rails.env.development? %>
+				</div>
+			</div> <!-- end row -->
+		</div> <!-- end container content -->
+	<% end %><!-- end if controller_name != 'welcome' -->
+	
 	
 </body>
 </html>
