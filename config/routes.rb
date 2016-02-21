@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  
 
-  # get 'tasks/index'
-   # get 'tasks/update'
-
+  root 'welcome#index'
   resources :contacts, except: [:new]
   resources :movies
+
+  # resources :user
+   resources :users
   get 'welcome/index'
   get 'welcome/about'
   # get 'contacts/new'
@@ -21,11 +21,9 @@ Rails.application.routes.draw do
     resources :articles do
       resources :comments
     end  
-    root 'welcome#index'
 
     resources :tasks, except: [:show]
 
-    resources :user
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
