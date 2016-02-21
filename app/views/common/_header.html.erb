@@ -19,5 +19,14 @@
 			 <li><%= link_to "Contact Me", contact_me_path %></li>
           </ul>
         </div><!-- /.nav-collapse -->
+
+        <% if logged_in? %>
+          <%= link_to "Users", '#' %>
+          <%= link_to "Log Out", logout_path, method: :delete %>
+        <% else %>
+
+        <% end %>
+
+
       </div><!-- /.container -->
     </nav>

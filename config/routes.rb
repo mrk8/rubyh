@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
-  get 'sessions/new'
-
   root 'welcome#index'
+  get 'sessions/new'
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+ 
   resources :contacts, except: [:new]
   resources :movies
-
   # resources :user
    resources :users
   get 'welcome/index'
