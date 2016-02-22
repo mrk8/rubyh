@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	attr_accessor :remember_token
 	# callbacks
 	before_save {self.email = email.downcase } 
 
@@ -12,5 +13,34 @@ class User < ActiveRecord::Base
 					  uniqueness: {case_sensitive: false}
 	# check password with bcrypt: https://www.railstutorial.org/book/modeling_users (section 6.34) 
 	has_secure_password		
-	validates :password, presence: true, length: {minimum: 6}		  
+	validates :password, presence: true, length: {minimum: 6}		
+
+	#  returns the hash digest of the given string. 
+	def User.digest(string)
+		cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : 
+													  BCrypt::Engine.cost
+		BCrypt::Password.create(string, cost: cost)
+	end
+	# returns a random token
+	def User.new_token
+		SecureRandom.urlsafe_base64
+	end
+
+	def remember
+		self.remember_token = User.new_token
+		update_attribute(:remember_digest, User.digest(remember_token))
+	end
+
+	def authenticated? (remember_token)
+		return false if remember_digest.nill?
+		Bcrypt::Password.new(remember_digest).is_password?(remember_token)
+	end
+
+	# Forgets a user.
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
+
+
+
 end
