@@ -1,14 +1,18 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
   def index
   	# @tasks = Task.all
   	@finished_tasks = Task.finished
   	@unstarted_tasks = Task.not_started
     @started_tasks = Task.started
 
+    @task = Task.all
+
   end
 
   def new
   	 @tasks = Task.new
+
   end
 
   def create

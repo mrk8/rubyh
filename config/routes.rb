@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
 
+
+  devise_for :users
   root 'welcome#index'
-  get 'sessions/new'
-  get 'login' => 'sessions#new'
-  post 'login' => 'sessions#create'
-  delete 'logout' => 'sessions#destroy'
+ 
  
   resources :contacts, except: [:new]
   resources :movies
-  # resources :user
-   resources :users
+ 
   get 'welcome/index'
   get 'welcome/about'
   # get 'contacts/new'
